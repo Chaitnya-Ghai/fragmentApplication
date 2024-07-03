@@ -15,7 +15,6 @@ import cg.tutorials.example.fragmentapplication.R
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-
 /**
  * A simple [Fragment] subclass.
  * Use the [FirstFragment.newInstance] factory method to
@@ -27,7 +26,6 @@ class FirstFragment : Fragment(),ActivityInterface {
     private var param2: String? = null
     var btn:Button?=null
     var mainActivity:MainActivity?=null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainActivity = activity as MainActivity
@@ -37,7 +35,6 @@ class FirstFragment : Fragment(),ActivityInterface {
             param2 = it.getString(ARG_PARAM2)
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,11 +42,9 @@ class FirstFragment : Fragment(),ActivityInterface {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_first, container, false)
     }
-
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
         Toast.makeText(requireContext(), "onViewStateRestored", Toast.LENGTH_SHORT).show()
-
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -58,21 +53,17 @@ class FirstFragment : Fragment(),ActivityInterface {
             mainActivity?.changeTxtColor()
         }
     }
-
     override fun onResume() {
         super.onResume()
         Toast.makeText(requireContext(), "on resume is executing", Toast.LENGTH_SHORT).show()
     }
-
     override fun onPause() {
         super.onPause()
         Toast.makeText(requireContext(), "this is on pause", Toast.LENGTH_SHORT).show()
     }
-
     override fun onStop() {
         super.onStop()
         Toast.makeText(requireContext(), "this is onStop", Toast.LENGTH_SHORT).show()
-
     }
     override fun onDestroyView() {
         super.onDestroyView()
@@ -82,7 +73,6 @@ class FirstFragment : Fragment(),ActivityInterface {
         super.onDestroy()
         Toast.makeText(requireContext(), "on destroy calls", Toast.LENGTH_SHORT).show()
     }
-
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -102,7 +92,6 @@ class FirstFragment : Fragment(),ActivityInterface {
                 }
             }
     }
-
     override fun changeTxtColor() {
         btn?.setText("change from activity")
         btn?.setBackgroundColor(Color.BLACK);
